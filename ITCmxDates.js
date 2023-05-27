@@ -1,3 +1,8 @@
+/* Funciones de fecha para proyectos de ITCmx Soluciones
+** Última modificacion: 27 de mayo de 2023 (2023/05/27)
+** 
+*/
+
 function obtenerFechaActual() {
   var fechaActual = new Date();
   
