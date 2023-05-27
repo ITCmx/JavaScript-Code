@@ -27,7 +27,5 @@ function calcularDiasEntreFechas(fecha1, fecha2) {
   // Convertir la diferencia a días
   var dias = Math.ceil(diferencia / (1000 * 3600 * 24));
 
-console.log(dias);
-
   return dias;
 }
