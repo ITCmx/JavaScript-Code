@@ -1,5 +1,5 @@
 /* Funciones para DevExtreme DataGrid
-** Última modificacion: 01 de junio de 2023 (2023/06/01)
+** Última modificacion: 03 de junio de 2023 (2023/06/03)
 ** 
 */
 
@@ -26,6 +26,7 @@ function ResizeGrid(AModule) {
 
 function selectionChanged(e) {
   selectedRowIndex = e.component.getRowIndexByKey(e.selectedRowKeys[0]);
+  key = e.selectedRowKeys[0];
   
   $("#action-remove").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
   $("#action-edit").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
@@ -53,5 +54,41 @@ function deleteRow(e) {
 function editRow(e) {
   dataGrid.editRow(selectedRowIndex);
   dataGrid.deselectAll();
+}
+
+function exporting(e) {
+  var workbook = new ExcelJS.Workbook();
+  var worksheet = workbook.addWorksheet('Hoja1');
+
+  DevExpress.excelExporter.exportDataGrid({
+    component: e.component,
+    worksheet: worksheet,
+    autoFilterEnabled: true
+  }).then(function () {
+    workbook.xlsx.writeBuffer().then(function (buffer) {
+      saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Concepto SS.xlsx');
+    });
+  });
+  e.cancel = true;  
+}
+
+function exportingPrompt(e) {
+  var sLibro = window.prompt("Escrba el nombre del Libro a exportar","LIbro de Excel");
+
+  if (sLibro != null && sLibro != "") {
+    var workbook = new ExcelJS.Workbook();
+    var worksheet = workbook.addWorksheet('Hoja1');
+
+    DevExpress.excelExporter.exportDataGrid({
+      component: e.component,
+      worksheet: worksheet,
+      autoFilterEnabled: true
+    }).then(function () {
+      workbook.xlsx.writeBuffer().then(function (buffer) {
+        saveAs(new Blob([buffer], { type: 'application/octet-stream' }), sLibro);
+      });
+    });
+  }
+  e.cancel = true;
 }
 
