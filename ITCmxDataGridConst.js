@@ -34,7 +34,7 @@ var directions = {
       of: ".dx-datagrid-rowsview",
       my: "right top",
       at: "right top",
-      offset: "9 -120"
+      offset: "9 -90"
     }
   }
 };
