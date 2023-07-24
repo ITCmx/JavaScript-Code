@@ -1,5 +1,5 @@
 /* Funciones para DevExtreme DataGrid
-** Última modificacion: 03 de junio de 2023 (2023/06/03)
+** Última modificacion: 24 de julio de 2023 (2023/07/24)
 ** 
 */
 
@@ -74,6 +74,7 @@ function exporting(e) {
 
 function exportingPrompt(e) {
   var sLibro = window.prompt("Escrba el nombre del Libro a exportar","LIbro de Excel");
+  sLibro += '.xlsx'
 
   if (sLibro != null && sLibro != "") {
     var workbook = new ExcelJS.Workbook();

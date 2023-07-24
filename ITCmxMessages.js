@@ -28,6 +28,7 @@ function showAlertContainer(contenedor, message, alerttype, notimeout) {
   if (notimeout === undefined)
     setTimeout(function () {
       $("#alertdiv").fadeOut();
+      $("#alertdiv").remove();
     }, AlertCloseTime);
 }
 
