@@ -24,6 +24,11 @@ function ResizeGrid(AModule) {
   DevExpress.ui.repaintFloatingActionButton();
 }
 
+function ResizeGridPercent(AModule, Porcentaje) {
+  $(AModule).css("height", $(window).innerHeight() * Porcentaje - 190);  
+  DevExpress.ui.repaintFloatingActionButton();
+}
+
 function selectionChanged(e) {
   selectedRowIndex = e.component.getRowIndexByKey(e.selectedRowKeys[0]);
   key = e.selectedRowKeys[0];
@@ -52,8 +57,10 @@ function deleteRow(e) {
 }
 
 function editRow(e) {
-  dataGrid.editRow(selectedRowIndex);
-  dataGrid.deselectAll();
+  e.component.editRow(e.rowIndex);
+  e.component.deselectAll();
+  //dataGrid.editRow(selectedRowIndex);
+  //dataGrid.deselectAll();
 }
 
 function exporting(e) {
