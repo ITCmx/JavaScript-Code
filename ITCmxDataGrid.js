@@ -100,3 +100,6 @@ function exportingPrompt(e) {
   e.cancel = true;
 }
 
+function dataGridRefresh(e) {
+  dataGrid.refresh();
+}
