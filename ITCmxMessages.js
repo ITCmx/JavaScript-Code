@@ -53,3 +53,28 @@ function showAlertError(message) {
     '</div>');
 }
 
+var direction = 'down-push';
+var position = 'top center';
+var displayTime = 3500;
+var animationType = "fade";
+
+function ShowToast(AMessage, AType){
+  DevExpress.ui.notify({
+    message: AMessage,
+    height: 45,
+    //width: 150,
+    minWidth: 150,
+    type: AType,
+    displayTime: displayTime,
+    animation: {
+      show: {
+        type: animationType, duration: 400, from: 0, to: 1,
+      },
+      hide: { type: animationType, duration: 40, to: 0 },
+    },
+  },
+    {
+      position,
+      direction,
+    });
+}
