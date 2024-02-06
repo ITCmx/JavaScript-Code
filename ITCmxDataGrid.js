@@ -33,8 +33,10 @@ function selectionChanged(e) {
   selectedRowIndex = e.component.getRowIndexByKey(e.selectedRowKeys[0]);
   key = e.selectedRowKeys[0];
   
-  $("#action-remove").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
-  $("#action-edit").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
+  if ($("#action-remove").length)
+    $("#action-remove").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
+  if ($("#action-edit").length)
+    $("#action-edit").dxSpeedDialAction("instance").option("visible", selectedRowIndex !== -1);
 }
 
 function jsKeyDown(e) {
