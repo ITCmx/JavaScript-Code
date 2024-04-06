@@ -105,3 +105,7 @@ function exportingPrompt(e) {
 function dataGridRefresh(e) {
   dataGrid.refresh();
 }
+
+function jsQuitarFiltros(e){  
+  dataGrid.clearFilter();
+}
