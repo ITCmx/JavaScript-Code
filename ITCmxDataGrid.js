@@ -75,17 +75,18 @@ function exporting(e) {
     autoFilterEnabled: true
   }).then(function () {
     workbook.xlsx.writeBuffer().then(function (buffer) {
-      saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Concepto SS.xlsx');
+      saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Libro de Excel.xlsx');
     });
   });
   e.cancel = true;  
 }
 
 function exportingPrompt(e) {
-  var sLibro = window.prompt("Escrba el nombre del Libro a exportar","LIbro de Excel");
-  sLibro += '.xlsx'
+  var sLibro = window.prompt("Escrba el nombre del Libro a exportar", "Libro de Excel");
 
   if (sLibro != null && sLibro != "") {
+    sLibro += '.xlsx'
+
     var workbook = new ExcelJS.Workbook();
     var worksheet = workbook.addWorksheet('Hoja1');
 
