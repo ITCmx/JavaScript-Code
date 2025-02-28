@@ -110,3 +110,7 @@ function dataGridRefresh(e) {
 function jsQuitarFiltros(e){  
   dataGrid.clearFilter();
 }
+
+function jsGridResetLayout(){
+  dataGrid.state(null);
+}
