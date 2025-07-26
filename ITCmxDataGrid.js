@@ -6,6 +6,7 @@
 var dataGrid;
 var selectedRowIndex = -1;
 var key = 0;
+var dataGridHeight = 190;
 
 $(function () {
   dataGrid = $("#grid").dxDataGrid("instance");
@@ -16,16 +17,16 @@ $(function () {
     floatingActionButtonConfig: directions["down"]
   });
 
-  ResizeGrid('#grid');
+  ResizeGrid('#grid');  
 });
 
 function ResizeGrid(AModule) {
-  $(AModule).css("height", $(window).innerHeight() - 190);  
+  $(AModule).css("height", $(window).innerHeight() - dataGridHeight);  
   DevExpress.ui.repaintFloatingActionButton();
 }
 
 function ResizeGridPercent(AModule, Porcentaje) {
-  $(AModule).css("height", $(window).innerHeight() * Porcentaje - 190);  
+  $(AModule).css("height", $(window).innerHeight() * Porcentaje - dataGridHeight);  
   DevExpress.ui.repaintFloatingActionButton();
 }
 
